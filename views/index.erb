@@ -1,0 +1,23 @@
+<div class="col-lg-12">
+  <h2 class="lead">Twitter検索</h2>
+  <div id="tweets" class="col-sm-12">
+    <% panel_class = ['panel-primary', 'panel-success', 'panel-warning', 'panel-danger', 'panel-info'] %>
+    <% panel_class += ['panel-primary', 'panel-success', 'panel-warning', 'panel-danger', 'panel-info'] %>
+    <% @tweets.each_with_index do |tweet,i| %>
+      <div class="tweet col-sm-4">
+        <div class="panel <%= panel_class[i] %>">
+          <div class="panel-heading">
+            <h3 class="panel-title"><a href="<%= tweet.url %>">@<%= tweet.user.screen_name %></a></h3>
+          </div>
+          <div class="panel-body">
+            <img src="<%= tweet.user.profile_image_uri %>" >
+            <%= tweet.text.gsub(/健康/, '<string class="text-info">\&</string>') %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="navigation center">
+  <a href="/?page=<%= @page %>"></a>
+</div>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title><%= @word %>検索</title>
+    <link rel="stylesheet" href="css/bootstrap.css" media="screen">
+    <link rel="stylesheet" href="css/bootswatch.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="page-header" id="banner">
+        <h1><%= @word %></h1>
+      </div>
+    </div>
+    <div class="container">
+      <%= yield %>
+    </div>
+
+    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootswatch.js"></script>
+    <script src="js/jquery.infinitescroll.min.js"></script>
+    <script type="text/javascript">
+      $(function(){
+        $('#tweets').infinitescroll({
+          navSelector  : ".navigation",
+          nextSelector : ".navigation a",
+          itemSelector : "#tweets .tweet",
+          loading: {
+            msgText: '',
+            finishedMsg: 'もう無いよ',
+            img: 'img/ajax-loader.gif',
+          },
+        });
+      });
+    </script>
+  </body>
+</html>
