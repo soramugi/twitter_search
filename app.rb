@@ -1,5 +1,7 @@
 require 'sinatra'
 require 'twitter'
+require 'dotenv'
+Dotenv.load
 
 WORD = ENV['SEARCH_WORD']
 
